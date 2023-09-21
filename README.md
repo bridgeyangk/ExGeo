@@ -81,7 +81,7 @@ python test.py --dataset "Shanghai" --dim_in 51 --lr 1e-3 --load_epoch 70
 ## Folder Structure
 
 ```tex
-└── RIPGeo
+└── ExGeo
 	├── datasets # Contains three large-scale real-world street-level IP geolocation datasets.
 	│	|── New_York # Street-level IP geolocation dataset collected from New York City including 91,808 IP addresses.
 	│	|── Los_Angeles # Street-level IP geolocation dataset collected from Los Angeles including 92,804 IP addresses.
