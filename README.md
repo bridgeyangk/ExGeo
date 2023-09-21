@@ -38,7 +38,6 @@ python generateidx.py --dataset "New_York"
 python generateidx.py --dataset "Los_Angeles"
 python generateidx.py --dataset "Shanghai"
 
-
 python preprocess.py --dataset "New_York"
 python preprocess.py --dataset "Los_Angeles"
 python preprocess.py --dataset "Shanghai"
@@ -94,6 +93,7 @@ python test.py --dataset "Shanghai" --dim_in 51 --lr 1e-3 --load_epoch 70
 	├── asset # Contains saved checkpoints and logs when running the model
 	│	|── log # Contains logs when running the model 
 	│	|── model # Contains the saved checkpoints
+        ├── generateidx.py # generate the idx of traget nodes and landmark nodes
 	├── preprocess.py # Preprocess dataset and execute IP clustering the for model running
 	├── main.py # Run model for training and test
 	├── test.py # Load checkpoint and then test
