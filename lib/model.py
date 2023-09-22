@@ -80,7 +80,7 @@ class Geo(nn.Module):
         mask_a_matrix = torch.distributions.relaxed_bernoulli.RelaxedBernoulli(
             torch.Tensor([0.05]).cuda(),
             probs=mask_a_prob).rsample()
-        eps = 0.5
+        eps = 0.8
         mask_a_matrix = (mask_a_matrix > eps).detach().float()
         return mask_a_prob, mask_a_matrix
 
