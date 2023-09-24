@@ -16,7 +16,7 @@ import seaborn as sns
 parser = argparse.ArgumentParser()
 # parameters of initializing
 parser.add_argument('--seed', type=int, default=1234, help='manual seed')
-parser.add_argument('--model_name', type=str, default='RIPGeo')
+parser.add_argument('--model_name', type=str, default='ExGeo')
 parser.add_argument('--dataset', type=str, default='Los_Angeles', choices=["Shanghai", "New_York", "Los_Angeles"],
                     help='which dataset to use')
 
@@ -72,7 +72,7 @@ train_data, test_data = train_data["data"], test_data["data"]
 print("data loaded.")
 
 '''record loss result'''
-log_dir = f"asset/log/{opt.dataset}.log"  # 定义保存日志的路径
+log_dir = f"asset/log/{opt.dataset}.log"
 writer = SummaryWriter(log_dir=log_dir)
 
 '''initiate model'''
