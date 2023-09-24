@@ -224,7 +224,7 @@ def get_graph(dataset, lm_idx, tg_idx, mode):
         for j in lm_idx:
             if last_routers_lm[j] == router:
                 neighbors.add(j)
-        if 0 < len(neighbors) <= 10:  # count of target's neighbors
+        if 0 <= len(neighbors) <= 10:  # count of target's neighbors
             has_neighbor_targets1.append(id)
         elif 10 < len(neighbors):
             has_neighbor_targets10.append(id)
