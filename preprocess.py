@@ -143,7 +143,6 @@ def find_all_nearest_router_lm(row):
     last_router_idx = list(range(0, 32, 8))
     last_delay_idx = list(range(1, 32, 8))
     routers = row[last_router_idx]
-    routers = [int(router) for router in routers if router.isdigit()]  # 转换为整数，过滤掉非数字字符
     delays = row[last_delay_idx]
 
     return routers, delays
