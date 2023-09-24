@@ -257,7 +257,9 @@ if __name__ == '__main__':
     lm_train_idx, tg_train_idx, lm_test_idx, tg_test_idx = get_idx(len(get_XY(opt.dataset)[0]), seed,
                                                                    train_test_ratio,lm_ratio)  # split train and test
 
-
+    lm_train_idx = np.load("datasets/{}/target_idx_lm{}.npz".format(opt.dataset, seed),
+                                    allow_pickle=True)["lm_train_idx"]
+  
     tg_train_idx_selected1 = np.load("datasets/{}/target_idx_lm{}.npz".format(opt.dataset, seed),
                                     allow_pickle=True)["train_tg_idx1"]
 
