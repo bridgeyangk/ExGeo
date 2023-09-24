@@ -133,7 +133,6 @@ def find_all_nearest_router(row):
     last_delay_idx = list(range(1, 32, 8))
     routers = row[last_router_idx]
     delays = row[last_delay_idx]
-    # idx = [i for i in range(4) if delays[i]>0]
 
     return routers, delays
 
@@ -145,8 +144,8 @@ def find_nearest_router_lm(row):
     delays = row[last_delay_idx]
     delays[delays <= 0] = math.inf
     nearest_idx = np.argmin(delays)
-
-    # routers[routers == "-1"] = "-9999"
+  
+    routers[routers == "-1"] = "-9999"
 
     return routers[nearest_idx], delays[nearest_idx]
 
@@ -162,20 +161,6 @@ def find_nearest_router_tg(row):
     routers[routers == "-1"] = "-9999"
 
     return routers[nearest_idx], delays[nearest_idx]
-
-
-# def find_nearest_router(row):
-#     last_router_idx = list(range(0, 32, 8))
-#     last_delay_idx = list(range(1, 32, 8))
-#     routers = row[last_router_idx]
-#     delays = row[last_delay_idx]
-#     delays[delays <= 0] = math.inf
-#     nearest_idx = np.argmin(delays)
-
-#     routers[routers == "-1"] = "-9999"
-
-#     return routers[nearest_idx], delays[nearest_idx]
-
 
 def handle_common(common_router, landmarks, targets):
     data = {
@@ -253,9 +238,7 @@ if __name__ == '__main__':
     train_test_ratio = opt.train_test_ratio  # 0.8
     lm_ratio = opt.lm_ratio  # 0.7
     lm_train_idx, tg_train_idx, lm_test_idx, tg_test_idx = get_idx(len(get_XY(opt.dataset)[0]), seed,
-                                                                   train_test_ratio,
-                                                                   lm_ratio)  # split train and test
-
+                                                                   train_test_ratio, lm_ratio)  # split train and test
     print("loading train set...")
     train_targets1, train_targets10 = get_graph(opt.dataset, lm_train_idx, tg_train_idx, mode="train")
     print("train set loaded.")
@@ -263,20 +246,8 @@ if __name__ == '__main__':
     print("loading test set...")
     test_targets1, test_targets10 = get_graph(opt.dataset, lm_test_idx, tg_test_idx, mode="test")
     print("test set loaded.")
-    print()
-
-    np.savez("datasets/{}/target_idx_lm{}.npz".format(opt.dataset, seed), train_tg_idx1=train_targets1,
-             train_tg_idx10=train_targets10,test_tg_idx1=test_targets1, test_tg_idx10 = test_targets10)
-
-    # # test_neighbors = get_graph(opt.dataset, lm_test_idx, tg_test_idx, mode="test")
-    # print("len: ", len(test_neighbors))
-
-    # with open("single_router/neighbor_counts_{}.csv".format(opt.dataset), mode="w", newline="") as file:
-    #     writer = csv.writer(file)
-    #     writer.writerow(test_neighbors)
-
-    # with open("neighbor_counts_{}.txt".format(opt.dataset), "w") as file:
-    #     for item in test_neighbors:
-    #         file.write(str(item) + "\n")
+  
+    np.savez("datasets/{}/target_idx_lm{}.npz".format(opt.dataset, seed), tarin_lm_idx=lm_train_idx, train_tg_idx1=train_targets1,
+             train_tg_idx10=train_targets10, test_tg_idx1=test_targets1, test_tg_idx10 = test_targets10)
 
     print("finish!")
