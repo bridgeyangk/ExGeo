@@ -143,7 +143,7 @@ def find_all_nearest_router_lm(row):
     last_router_idx = list(range(0, 32, 8))
     last_delay_idx = list(range(1, 32, 8))
     routers = row[last_router_idx]
-    routers = [int(router) for router in routers if router.isdigit()]  # 转换为整数，过滤掉非数字字符
+    routers = [int(router) for router in routers if router.isdigit()]
     delays = row[last_delay_idx]
 
     return routers, delays
@@ -179,10 +179,10 @@ def get_graph(dataset, lm_idx, tg_idx1, tg_idx10, mode):
 
     last_hop_tg = list(map(find_all_nearest_router_tg, T))
 
-    last_routers_tg = np.array(last_hop_tg)[:, 0]
+    last_routers_tg = np.array(last_hop_tg, dtype=object)[:, 0]
 
     last_hop_lm = list(map(find_all_nearest_router_lm, T))
-    last_routers_lm = np.array(last_hop_lm)[:, 0]
+    last_routers_lm = np.array(last_hop_lm, dtype=object)[:, 0]
 
 
     neighbors_tg = {}
@@ -203,10 +203,10 @@ def get_graph(dataset, lm_idx, tg_idx1, tg_idx10, mode):
         # print(routers_tg)
         for j in lm_idx:
             routers_lm = last_routers_lm10[j]
-            if routers_tg == routers_lm:  # 判断两set中存在相同元素
+            if routers_tg == routers_lm: 
                 nst.add(j)
         nst = list(nst)
-        nst_tg[id] = nst # 记录tg的每个landmarks
+        nst_tg[id] = nst
         # construct graph
         lm_nodes = X[nst]
         lm_labels = Y[nst]
@@ -218,7 +218,7 @@ def get_graph(dataset, lm_idx, tg_idx1, tg_idx10, mode):
             "tg_X": np.expand_dims(tg_nodes, axis=0),
             "tg_Y": np.expand_dims(tg_labels, axis=0),
         }
-        data2.append(data_tg)  # 记录子图
+        data2.append(data_tg) 
 
 
     for id in tqdm(tg_idx1):
