@@ -143,6 +143,7 @@ def find_all_nearest_router_lm(row):
     last_router_idx = list(range(0, 32, 8))
     last_delay_idx = list(range(1, 32, 8))
     routers = row[last_router_idx]
+    routers = [int(router) for router in routers if router.isdigit()]  # 转换为整数，过滤掉非数字字符
     delays = row[last_delay_idx]
 
     return routers, delays
@@ -257,9 +258,7 @@ if __name__ == '__main__':
     lm_train_idx, tg_train_idx, lm_test_idx, tg_test_idx = get_idx(len(get_XY(opt.dataset)[0]), seed,
                                                                    train_test_ratio,lm_ratio)  # split train and test
 
-    lm_train_idx = np.load("datasets/{}/target_idx_lm{}.npz".format(opt.dataset, seed),
-                                    allow_pickle=True)["lm_train_idx"]
-  
+
     tg_train_idx_selected1 = np.load("datasets/{}/target_idx_lm{}.npz".format(opt.dataset, seed),
                                     allow_pickle=True)["train_tg_idx1"]
 
