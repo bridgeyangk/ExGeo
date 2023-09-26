@@ -118,7 +118,7 @@ class Geo(nn.Module):
 
 
         degree_0 = torch.sum(adj_matrix_0, dim=1)
-        degree_0 = torch.add(degree_0, 1e-5)
+        # degree_0 = torch.add(degree_0, 1e-5)
         degree_reverse_0 = 1.0 / degree_0
         degree_matrix_reverse_0 = torch.diag(degree_reverse_0)
 
