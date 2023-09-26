@@ -106,7 +106,7 @@ class Geo(nn.Module):
         mask_a_prob, mask_a_matrix = self.adj_mask(lm_X, tg_X, all_feature_0)
         adj_matrix_0[N1:N1 + N2, :N1] = attribute_score * mask_a_matrix[N1:N1 + N2, :N1]
         degree_0 = torch.sum(adj_matrix_0, dim=1)
-        degree_0 = torch.add(degree_0, 1e-5)
+        # degree_0 = torch.add(degree_0, 1e-5)
         degree_reverse_0 = 1.0 / degree_0
         degree_matrix_reverse_0 = torch.diag(degree_reverse_0)
 
