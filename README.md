@@ -4,7 +4,7 @@
 ![](https://img.shields.io/badge/cudatoolkit-11.6.0-green)
 ![](https://img.shields.io/badge/cudnn-7.6.5-green)
 
-This folder provides a reference implementation of **ExGeo**, as described in the paper: "EXPLORING SELF-EXPLAINABLE STREET-LEVEL IP GEOLOCATION WITH GRAPH INFORMATION BOTTLENECK".
+This folder provides a reference implementation of **ExGeo**.
 
 
 ## Basic Usage
