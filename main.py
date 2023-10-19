@@ -172,7 +172,7 @@ if __name__ == '__main__':
             if epoch > 0 and epoch % 1 == 0:#print the first mask_matrix of epoch1
                     adj=[]
                     adj.append(adj_mask_matrix)
-                    first_matrix = adj[0][0]
+                    first_matrix = adj[0][-1]
                     print(first_matrix)
                     count_0 = adj.count(adj[0])
                     count_1 = adj.count(adj[1])
