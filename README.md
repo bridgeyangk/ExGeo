@@ -1,4 +1,8 @@
 # ExGeo
+Update log(23.10.19): We supplement code for print the mask_matrix in main.py which can show the change of matrix by change the number of epoch.
+
+
+
 ![](https://img.shields.io/badge/python-3.8.13-green)
 ![](https://img.shields.io/badge/pytorch-1.12.1-green)
 ![](https://img.shields.io/badge/cudatoolkit-11.6.0-green)
