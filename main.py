@@ -168,8 +168,16 @@ if __name__ == '__main__':
             total_loss += loss.item()
             total_mae += distance.sum()
             train_num += len(tg_Y)
-
           
+            if epoch > 0 and epoch % 1 == 0:#print the first mask_matrix of epoch1
+                    adj=[]
+                    adj.append(adj_mask_matrix)
+                    first_matrix = adj[0][0]
+                    print(first_matrix)
+                    count_0 = adj.count(adj[0])
+                    count_1 = adj.count(adj[1])
+                    print(f"Count of elements at index 0: {count_0}")
+                    print(f"Count of elements at index 1: {count_1}")
 
         AIB_KL_loss = AIB_KL_loss / train_num
         total_loss = total_loss / train_num
