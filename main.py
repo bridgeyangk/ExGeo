@@ -153,7 +153,7 @@ if __name__ == '__main__':
             # loss = mse_loss
 
             #AIB
-            AIB_prior = (0.5 * torch.ones_like(adj_mask_prob)).to(device)
+            AIB_prior = (0.1 * torch.ones_like(adj_mask_prob)).to(device)
             AIB_posterior = torch.distributions.bernoulli.Bernoulli(adj_mask_prob)
             AIB_prior = torch.distributions.bernoulli.Bernoulli(AIB_prior)
             aib_kl_loss = torch.distributions.kl.kl_divergence(AIB_posterior, AIB_prior)
