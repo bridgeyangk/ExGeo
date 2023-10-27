@@ -1,5 +1,7 @@
 # ExGeo
-Update log(23.10.19): We supplement code for print the mask_matrix in main.py which can show the change of matrix by change the number of epoch.
+2.Update log(23.10.27): We modified the prior probability parameter p=0.2 of Aib. If we want to reproduce the explainability experiment, it may be more obvious to use smaller probability parameters. It is worth noting that different weight coefficients 'beta' will eventually make the learned Q(Aib/A) converge to the prior distribution P(A). A larger weight coefficient 'beta' will retain fewer nodes with the same accuracy.
+
+1.Update log(23.10.19): We supplement code for print the mask_matrix in main.py which can show the change of matrix by change the number of epoch.
 
 
 
