@@ -4,7 +4,7 @@
 ![](https://img.shields.io/badge/cudatoolkit-11.6.0-green)
 ![](https://img.shields.io/badge/cudnn-7.6.5-green)
 
-This folder provides a reference implementation of **Exploring Self-Explainable Street-Level IP Geolocation with Graph Information Bottleneck**.
+This folder provides a reference implementation of our paper -- Exploring Self-Explainable Street-Level IP Geolocation with Graph Information Bottleneck(ICASSP24).
 
 
 ## Basic Usage
